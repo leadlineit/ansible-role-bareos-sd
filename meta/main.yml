@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: bareos-sd
+  role_name: bareos_sd
   namespace: leadlineit
   author: Artem Kasianchuk
   description: Install and configure Bareos Storage Daemon
@@ -15,3 +15,4 @@ galaxy_info:
     - debian
     - backup
     - bareos
+    - storage

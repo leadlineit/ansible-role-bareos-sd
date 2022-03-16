@@ -7,6 +7,6 @@
         name: gnupg
         state: present
         update_cache: true
-    - name: "Include leadlineit.bareos-sd"
+    - name: "Include leadlineit.bareos_sd"
       include_role:
-        name: "leadlineit.bareos-sd"
+        name: "leadlineit.bareos_sd"
