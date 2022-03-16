@@ -11,7 +11,7 @@ on:
 
 defaults:
   run:
-    working-directory: 'leadlineit.bareos-sd'
+    working-directory: 'leadlineit.bareos_sd'
 
 jobs:
   lint:
@@ -21,7 +21,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          path: 'leadlineit.bareos-sd'
+          path: 'leadlineit.bareos_sd'
 
       - name: Set up Python 3
         uses: actions/setup-python@v2
@@ -48,7 +48,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          path: 'leadlineit.bareos-sd'
+          path: 'leadlineit.bareos_sd'
       - name: Set up Python 3
         uses: actions/setup-python@v2
         with:
@@ -79,7 +79,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          path: 'leadlineit.bareos-sd'
+          path: 'leadlineit.bareos_sd'
 
       - name: Set up Python 3
         uses: actions/setup-python@v2

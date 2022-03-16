@@ -1,17 +1,22 @@
 ---
 # defaults file for leadlineit.bareos-sd
+bareos_release: 21
 bareos_sd:
+  location:
+    - path: /data/bareos
   director: 
-    - name: '{{ bareos_server }}-dir'
-      password: '{{ bareos_storage_password }}'
-    - name: '{{ bareos_server }}-mon'
-      password: '{{ bareos_storage_monitor_password }}'
+    - name: your-dir
+      password: DIRAver@gEStr0ngPaSSw0rd
+    - name: your-mon
+      password: MONAver@gEStr0ngPaSSw0rd
       monitor: "Yes"
-      description: "Restricted Director, used by tray-monitor to get the status of this storage daemon."
+      description: "Restricted Director monitor description"
+  storage:
+    - name: your.storage
   device:
-    - name: '{{ bareos_server }}-data'
-      path: '{{ bareos_storage_location }}'
-      description: ""
-  message:
-    - name: '{{ bareos_server }}'
-      server: '{{ bareos_server }}-dir'
+    - name: your-data
+      path: /data/bareos
+      description: "Device description"
+  messages:
+    - name: your-messages
+      server: your-dir

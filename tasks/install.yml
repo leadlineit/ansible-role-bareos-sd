@@ -11,7 +11,8 @@
 
 - name: Add official Bareos package authentication key
   apt_key:
-    url: https://download.bareos.org/bareos/release/{{ bareos_release | default("21") }}/Debian_{{ ansible_distribution_major_version }}/Release.gpg
+    keyserver: keyserver.ubuntu.com
+    id: E01957D6C9FED482
     state: present
 
 - name: Add the Bareos repository to APT sources
