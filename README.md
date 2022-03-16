@@ -35,8 +35,10 @@ The variables that can be passed to this role and a brief description about them
         - name: your-messages
           server: your-dir
 ```
+
 The variables above are optional. They don't have a default value, so if you don't define them - tasks using them will be skipped. 
 You can set only some of them, or not set at all (in this case, you will simply install Bareos Storage with default configuration). 
+
 Variable 'bareos_release' are optional.
 Default values for optional variable:
 
@@ -57,7 +59,7 @@ Including an example of how to use your role (for instance, with variables passe
 ```yaml
     - hosts: servers
       roles:
-         - { role: leadlineit.bareos-sd, tags: bareos-sd }
+         - { role: leadlineit.bareos_sd, tags: bareos_sd }
 ```
 
 License
