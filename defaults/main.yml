@@ -1,0 +1,17 @@
+---
+# defaults file for leadlineit.bareos-sd
+bareos_sd:
+  director: 
+    - name: '{{ bareos_server }}-dir'
+      password: '{{ bareos_storage_password }}'
+    - name: '{{ bareos_server }}-mon'
+      password: '{{ bareos_storage_monitor_password }}'
+      monitor: "Yes"
+      description: "Restricted Director, used by tray-monitor to get the status of this storage daemon."
+  device:
+    - name: '{{ bareos_server }}-data'
+      path: '{{ bareos_storage_location }}'
+      description: ""
+  message:
+    - name: '{{ bareos_server }}'
+      server: '{{ bareos_server }}-dir'

@@ -1,0 +1,12 @@
+---
+# handlers file for mysql_server
+
+- name: enable bareos-sd service
+  service:
+    name: bareos-sd
+    enabled: true
+
+- name: restart bareos-sd service
+  service:
+    name: bareos-sd
+    state: restarted

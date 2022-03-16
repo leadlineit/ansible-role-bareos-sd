@@ -1,0 +1,43 @@
+---
+- name: Create storage location if it does not exist
+  file: 
+    path: "{{ bareos_storage_location }}"
+    state: directory
+    mode: '0770'
+    owner: bareos
+    group: bareos
+
+- name: Configure bareos-sd storage
+  template:
+    src: storage.conf.j2
+    dest: /etc/bareos/bareos-sd.d/storage/{{ item.name }}.conf
+    mode: '0640'
+    owner: bareos
+    group: bareos
+
+- name: Configure bareos-sd director
+  template:
+    src: director.conf.j2
+    dest: /etc/bareos/bareos-sd.d/director/{{ item.name }}.conf
+    mode: '0640'
+    owner: bareos
+    group: bareos
+  with_items: '{{ bareos_sd.director }}'
+
+- name: Configure bareos-sd devices
+  template:
+    src: device.conf.j2
+    dest: /etc/bareos/bareos-sd.d/device/{{ item.name }}.conf
+    mode: '0640'
+    owner: bareos
+    group: bareos
+  with_items: '{{ bareos_sd.device }}'
+
+- name: Configure bareos-sd messages
+  template:
+    src: message.conf.j2
+    dest: /etc/bareos/bareos-sd.d/messages/{{ item.name }}.conf
+    mode: '0640'
+    owner: bareos
+    group: bareos
+  with_items: '{{ bareos_sd.message }}'
