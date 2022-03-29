@@ -3,9 +3,9 @@ Device {
   Name = {{ item.name }}
   Media Type = File
   Archive Device = {{ item.path }}
-  LabelMedia = yes;                   # lets Bareos label unlabeled media
+  LabelMedia = yes;
   Random Access = yes;
-  AutomaticMount = yes;               # when device opened, read it
+  AutomaticMount = yes;
   RemovableMedia = no;
   AlwaysOpen = no;
   Description = "{{ item.description | default(item.name) }}"

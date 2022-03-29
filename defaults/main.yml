@@ -1,16 +1,17 @@
 ---
-# defaults file for leadlineit.bareos-sd
 bareos_release: 21
 bareos_sd:
   location:
     - path: /data/bareos
-  director: 
+  director:
     - name: your-dir
+      description: Director, who is permitted to contact this file daemon.
       password: DIRAver@gEStr0ngPaSSw0rd
+      tls_enabled: yes
     - name: your-mon
       password: MONAver@gEStr0ngPaSSw0rd
       monitor: "Yes"
-      description: "Restricted Director monitor description"
+      description: Restricted Director monitor description
   storage:
     - name: your.storage
   device:
