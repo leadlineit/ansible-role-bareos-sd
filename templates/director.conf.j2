@@ -8,9 +8,9 @@ Director {
 {% endif %}
     Monitor = {{ item.monitor | default("No") }}
     Description = "{{ item.description | default(item.name) }}"
-{% if item.tls_enable is defined %}    
-    TLS Enable = {{ item.tls_enable }}
-    TLS Require = {{ item.tls_enable }}
+{% if item.tls_enabled is defined %}    
+    TLS Enable = {{ item.tls_enabled }}
+    TLS Require = {{ item.tls_enabled }}
     TLS Verify Peer = yes
     TLS CA Certificate File = /etc/bareos/tls/ca.crt
     TLS Certificate = /etc/bareos/tls/"{{ item.name }}".crt

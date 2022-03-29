@@ -16,25 +16,29 @@ Role Variables
 The variables that can be passed to this role and a brief description about them are as follows:
 
 ```yaml
+    bareos_release: 21
     bareos_sd:
       location:
         - path: /data/bareos
-      director: 
+          director:
         - name: your-dir
+          description: Director, who is permitted to contact this storage daemon.
           password: DIRAver@gEStr0ngPaSSw0rd
+          tls_enabled: yes
         - name: your-mon
           password: MONAver@gEStr0ngPaSSw0rd
           monitor: "Yes"
-          description: "Restricted Director monitor description"
+          description: Restricted Director monitor description
       storage:
         - name: your.storage
       device:
         - name: your-data
           path: /data/bareos
-          description: "Device description"
+          description: Device description
       messages:
         - name: your-messages
           server: your-dir
+
 ```
 
 The variables above are optional. They don't have a default value, so if you don't define them - tasks using them will be skipped. 
