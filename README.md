@@ -26,7 +26,7 @@ The variables that can be passed to this role and a brief description about them
         - name: your-dir
           description: Director, who is permitted to contact this storage daemon.
           password: DIRAver@gEStr0ngPaSSw0rd
-      tls_enabled: yes
+          tls_enabled: yes
         - name: your-mon
           description: Restricted Director monitor description
           password: MONAver@gEStr0ngPaSSw0rd
