@@ -1,0 +1,12 @@
+---
+- name: Configure bareos-sd devices
+  when: bareos_sd.device is defined
+  template:
+    src: device.conf.j2
+    dest: /etc/bareos/bareos-sd.d/device/{{ item.name }}.conf
+    mode: '0640'
+    owner: bareos
+    group: bareos
+  with_items: "{{ bareos_sd.device }}"
+  notify:
+    - restart bareos-sd service

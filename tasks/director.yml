@@ -1,0 +1,13 @@
+---
+- name: Configure bareos-sd director
+  no_log: true
+  when: bareos_sd.director is defined
+  template:
+    src: director.conf.j2
+    dest: /etc/bareos/bareos-sd.d/director/{{ item.name }}.conf
+    mode: '0640'
+    owner: bareos
+    group: bareos
+  with_items: "{{ bareos_sd.director }}"
+  notify:
+    - restart bareos-sd service

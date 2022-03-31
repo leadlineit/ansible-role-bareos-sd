@@ -3,8 +3,28 @@
   tags:
     - install_bareos_sd
     - install
+    - bareos_sd
 
-- import_tasks: configure.yml
+- import_tasks: storage.yml
   tags:
     - configure_bareos_sd
-    - configure
+    - bareos_sd_storage
+    - bareos_sd
+
+- import_tasks: director.yml
+  tags:
+    - configure_bareos_sd
+    - bareos_sd_director
+    - bareos_sd
+
+- import_tasks: device.yml
+  tags:
+    - configure_bareos_sd
+    - bareos_sd_device
+    - bareos_sd
+
+- import_tasks: messages.yml
+  tags:
+    - configure_bareos_sd
+    - bareos_sd_messages
+    - bareos_sd
