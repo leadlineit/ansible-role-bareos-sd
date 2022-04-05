@@ -1,7 +1,6 @@
 ---
 - name: Configure bareos-sd director
   no_log: true
-  when: bareos_sd.director is defined
   template:
     src: director.conf.j2
     dest: /etc/bareos/bareos-sd.d/director/{{ item.name }}.conf

@@ -1,6 +1,5 @@
 ---
 - name: Configure bareos-sd messages
-  when: bareos_sd.messages is defined
   template:
     src: messages.conf.j2
     dest: /etc/bareos/bareos-sd.d/messages/{{ item.name }}.conf

@@ -12,18 +12,21 @@
     - bareos_sd
 
 - import_tasks: director.yml
+  when: bareos_sd.director is defined
   tags:
     - configure_bareos_sd
     - bareos_sd_director
     - bareos_sd
 
 - import_tasks: device.yml
+  when: bareos_sd.device is defined
   tags:
     - configure_bareos_sd
     - bareos_sd_device
     - bareos_sd
 
 - import_tasks: messages.yml
+  when: bareos_sd.messages is defined
   tags:
     - configure_bareos_sd
     - bareos_sd_messages
