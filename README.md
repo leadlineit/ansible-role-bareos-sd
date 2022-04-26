@@ -1,7 +1,7 @@
 # Ansible Galaxy role for install and configure Bareos Storage Daemon.
 
 ![Build Status](https://github.com/leadlineit/ansible-role-bareos_sd/actions/workflows/ansible-galaxy-ci.yml/badge.svg)
-[![Galaxy Role](https://img.shields.io/badge/Ansible--Galaxy-leadlineit.bareos_sd-blue.svg)](https://galaxy.ansible.com/leadlineit/bareos_sd/)
+[![Galaxy Role](https://img.shields.io/badge/Ansible--Galaxy-leadlineit.bareos_sd-blue.svg?logo=ansible&logoColor=white)](https://galaxy.ansible.com/leadlineit/bareos_sd/)
 
 This role helps to install and configure Bareos Storage Daemon to Debian (buster/bullseye).
 
