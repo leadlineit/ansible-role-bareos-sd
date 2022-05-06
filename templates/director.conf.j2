@@ -1,14 +1,10 @@
 #{{ ansible_managed }}
 Director {
     Name = {{ item.name }}
-{% if item.password is defined %}
-    Password = "{{ item.password }}"
-{% else %}
-    Password = ""
-{% endif %}
-    Monitor = {{ item.monitor | default("No") }}
     Description = "{{ item.description | default(item.name) }}"
-{% if item.tls_enabled is defined %}    
+    Password = "{{ item.password | defined() }}"
+    Monitor = {{ item.monitor | default("No") }}
+{% if item.tls_enabled is defined %}
     TLS Enable = {{ item.tls_enabled }}
     TLS Require = {{ item.tls_enabled }}
     TLS Verify Peer = yes

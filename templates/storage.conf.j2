@@ -2,4 +2,11 @@
 Storage {
   Name = {{ item.name }}
   Maximum Concurrent Jobs = 20
+{% if item.tls_enabled is defined %}
+    TLS Enable = {{ item.tls_enabled }}
+    TLS Require = {{ item.tls_enabled }}
+    TLS CA Certificate File = {{ bareos_tls_path }}/CA.crt
+    TLS Certificate = {{ bareos_tls_path }}/{{ item.name }}.crt
+    TLS Key = {{ bareos_tls_path }}/{{ item.name }}.key
+{% endif %}
 }

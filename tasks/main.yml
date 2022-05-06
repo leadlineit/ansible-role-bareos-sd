@@ -6,6 +6,7 @@
     - bareos_sd
 
 - import_tasks: storage.yml
+  when: bareos_sd.storage is defined
   tags:
     - configure_bareos_sd
     - bareos_sd_storage

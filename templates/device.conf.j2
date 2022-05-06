@@ -1,6 +1,7 @@
 #{{ ansible_managed }}
 Device {
   Name = {{ item.name }}
+  Description = "{{ item.description | default(item.name) }}"
   Media Type = File
   Archive Device = {{ item.path }}
   LabelMedia = yes;
@@ -8,5 +9,4 @@ Device {
   AutomaticMount = yes;
   RemovableMedia = no;
   AlwaysOpen = no;
-  Description = "{{ item.description | default(item.name) }}"
 }
