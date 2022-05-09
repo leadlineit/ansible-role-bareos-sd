@@ -20,6 +20,7 @@ bareos_keyserver: keyserver.ubuntu.com
 bareos_apt_key: E01957D6C9FED482
 bareos_release: 21
 bareos_tls_path: /etc/bareos/tls
+bareos_tls_certs: your.bareos.dir.com
 
 bareos_sd:
   location:
@@ -32,10 +33,12 @@ bareos_sd:
     - name: your-mon
       description: Restricted Director monitor description
       password: MONAver@gEStr0ngPaSSw0rd
-      monitor: "Yes"
+      monitor: Yes
+      tls_enabled: yes
   storage:
     - name: your.storage
       description: Storage for some sort of backups
+      password: STORAver@gEStr0ngPaSSw0rd
       tls_enabled: yes
   device:
     - name: your-data

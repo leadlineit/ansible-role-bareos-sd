@@ -3,13 +3,13 @@ Director {
     Name = {{ item.name }}
     Description = "{{ item.description | default(item.name) }}"
     Password = "{{ item.password | default() }}"
-    Monitor = {{ item.monitor | default("No") }}
+    Monitor = "{{ item.monitor | default(No) }}"
 {% if item.tls_enabled is defined %}
     TLS Enable = {{ item.tls_enabled }}
     TLS Require = {{ item.tls_enabled }}
     TLS Verify Peer = yes
     TLS CA Certificate File = {{ bareos_tls_path }}/CA.crt
-    TLS Certificate = {{ bareos_tls_path }}/{{ item.name }}.crt
-    TLS Key = {{ bareos_tls_path }}/{{ item.name }}.key
+    TLS Certificate = {{ bareos_tls_path }}/{{ bareos_tls_certs }}.crt
+    TLS Key = {{ bareos_tls_path }}/{{ bareos_tls_certs }}.key
 {% endif %}
 }
