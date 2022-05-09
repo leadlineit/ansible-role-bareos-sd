@@ -35,6 +35,7 @@ bareos_sd:
       monitor: "Yes"
   storage:
     - name: your.storage
+      description: Storage for some sort of backups
       tls_enabled: yes
   device:
     - name: your-data

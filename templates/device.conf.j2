@@ -1,12 +1,12 @@
 #{{ ansible_managed }}
 Device {
-  Name = {{ item.name }}
-  Description = "{{ item.description | default(item.name) }}"
-  Media Type = File
-  Archive Device = {{ item.path }}
-  LabelMedia = yes;
-  Random Access = yes;
-  AutomaticMount = yes;
-  RemovableMedia = no;
-  AlwaysOpen = no;
+    Name = {{ item.name }}
+    Description = "{{ item.description | default(item.name) }}"
+    Media Type = File
+    Archive Device = {{ item.path }}
+    LabelMedia = yes;
+    Random Access = yes;
+    AutomaticMount = yes;
+    RemovableMedia = no;
+    AlwaysOpen = no;
 }
