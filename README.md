@@ -33,7 +33,7 @@ bareos_sd:
     - name: your-mon
       description: Restricted Director monitor description
       password: MONAver@gEStr0ngPaSSw0rd
-      monitor: Yes
+      monitor: "Yes"
       tls_enabled: yes
   storage:
     - name: your.storage
