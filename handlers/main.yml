@@ -1,10 +1,10 @@
 ---
 - name: enable bareos-sd service
-  service:
+  ansible.builtin.service:
     name: bareos-sd
     enabled: true
 
 - name: restart bareos-sd service
-  service:
+  ansible.builtin.service:
     name: bareos-sd
     state: restarted

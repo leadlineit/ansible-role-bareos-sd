@@ -16,6 +16,7 @@ Role Variables
 The variables that can be passed to this role and a brief description about them are as follows:
 
 ```yaml
+---
 bareos_keyserver: keyserver.ubuntu.com
 bareos_apt_key: E01957D6C9FED482
 bareos_release: 21
@@ -57,6 +58,7 @@ Variable 'bareos_release' are optional.
 Default values for optional variable:
 
 ```yaml
+---
 bareos_release: 21
 ```
 
@@ -73,7 +75,7 @@ Including an example of how to use your role (for instance, with variables passe
 ```yaml
 - hosts: servers
   roles:
-      - { role: leadlineit.bareos_sd, tags: bareos_sd }
+    - { role: leadlineit.bareos_sd, tags: bareos_sd }
 ```
 
 License
