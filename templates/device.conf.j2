@@ -3,7 +3,7 @@ Device {
     Name = {{ item.name }}
     Description = "{{ item.description | default(item.name) }}"
     Media Type = File
-    Archive Device = {{ item.path }}
+    Archive Device = {{ item.path }}/{{ item.name }}
     LabelMedia = yes;
     Random Access = yes;
     AutomaticMount = yes;
