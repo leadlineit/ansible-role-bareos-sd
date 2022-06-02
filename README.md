@@ -30,17 +30,16 @@ bareos_sd:
     - name: your-dir
       description: Director, who is permitted to contact this storage daemon.
       password: DIRAver@gEStr0ngPaSSw0rd
-      tls_enabled: yes
+      tls_enable: "yes"
     - name: your-mon
       description: Restricted Director monitor description
       password: MONAver@gEStr0ngPaSSw0rd
       monitor: "Yes"
-      tls_enabled: yes
+      tls_enable: "yes"
   storage:
     - name: your.storage
       description: Storage for some sort of backups
-      password: STORAver@gEStr0ngPaSSw0rd
-      tls_enabled: yes
+      tls_enable: "yes"
   device:
     - name: your-data
       description: Device description
@@ -53,14 +52,6 @@ bareos_sd:
 
 The variables above are optional. They don't have a default value, so if you don't define them - tasks using them will be skipped. 
 You can set only some of them, or not set at all (in this case, you will simply install Bareos Storage with default configuration). 
-
-Variable 'bareos_release' are optional.
-Default values for optional variable:
-
-```yaml
----
-bareos_release: 21
-```
 
 Dependencies
 ------------

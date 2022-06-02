@@ -1,11 +1,13 @@
 ---
-- name: Create tls location if that need
+- name: Create tls location
+  when: bareos_tls_path is defined
   ansible.builtin.file: 
-    path: "{{ bareos_tls_path }}"
+    path: "{{ item }}"
     state: directory
     mode: '0755'
     owner: bareos
     group: bareos
+  with_items: "{{ bareos_tls_path }}"
 
 - name: Create storage location
   when: bareos_sd.location is defined
@@ -18,7 +20,6 @@
   with_items: "{{ bareos_sd.location }}"
 
 - name: Configure bareos-sd storage
-  when: bareos_sd.storage is defined
   ansible.builtin.template:
     src: storage.conf.j2
     dest: /etc/bareos/bareos-sd.d/storage/{{ item.name }}.conf
