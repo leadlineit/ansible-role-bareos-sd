@@ -5,6 +5,12 @@
     - install
     - bareos_sd
 
+- import_tasks: configure.yml
+  tags:
+    - configure_bareos_sd
+    - configure
+    - bareos_sd
+
 - import_tasks: storage.yml
   when: bareos_sd.storage is defined
   tags:

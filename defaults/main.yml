@@ -10,17 +10,17 @@ bareos_sd:
     - path: /data/bareos
   director:
     - name: your-dir
-      description: Director, who is permitted to contact this storage daemon.
+      description: Director description (who is permitted to contact this storage daemon)
       password: DIRAver@gEStr0ngPaSSw0rd
       tls_enable: "yes"
     - name: your-mon
       description: Restricted Director monitor description
       password: MONAver@gEStr0ngPaSSw0rd
-      monitor: "Yes"
+      monitor: "yes"
       tls_enable: "yes"
   storage:
     - name: your.storage
-      description: Storage for some sort of backups
+      description: Storage description
       tls_enable: "yes"
   device:
     - name: your-data

@@ -1,24 +1,4 @@
 ---
-- name: Create tls location
-  when: bareos_tls_path is defined
-  ansible.builtin.file: 
-    path: "{{ item }}"
-    state: directory
-    mode: '0755'
-    owner: bareos
-    group: bareos
-  with_items: "{{ bareos_tls_path }}"
-
-- name: Create storage location
-  when: bareos_sd.location is defined
-  ansible.builtin.file: 
-    path: "{{ item.path }}"
-    state: directory
-    mode: '0770'
-    owner: bareos
-    group: bareos
-  with_items: "{{ bareos_sd.location }}"
-
 - name: Configure bareos-sd storage
   ansible.builtin.template:
     src: storage.conf.j2
@@ -27,5 +7,14 @@
     owner: bareos
     group: bareos
   with_items: "{{ bareos_sd.storage }}"
+  notify:
+    - restart bareos-sd service
+
+- name: Remove default bareos-sd configuration (unmanaged)
+  ansible.builtin.file:
+    path: /etc/bareos/bareos-sd.d/storage/{{ item }}
+    state: absent
+  with_items:
+    - bareos-sd.conf
   notify:
     - restart bareos-sd service
