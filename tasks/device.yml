@@ -9,3 +9,19 @@
   with_items: "{{ bareos_sd.device }}"
   notify:
     - restart bareos-sd service
+
+- name: Find unmanaged bareos-sd device configurations
+  ansible.builtin.find:
+    paths: /etc/bareos/bareos-sd.d/device
+    file_type: file
+    excludes: "{{ bareos_sd.device | map(attribute='name') | product(['.conf']) | map('join') | flatten }}"
+  register: fsdout
+
+- name: Remove unmanaged bareos-sd device configurations
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ fsdout.files | map(attribute='path') | unique }}"
+  notify:
+    - restart bareos-sd service
