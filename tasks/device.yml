@@ -12,7 +12,7 @@
 
 - name: Create devices location
   ansible.builtin.file: 
-    path: "{{ bareos_sd.location }}/{{ item.name }}"
+    path: "{{ item.path }}/{{ item.name }}"
     state: directory
     mode: '0770'
     owner: bareos
