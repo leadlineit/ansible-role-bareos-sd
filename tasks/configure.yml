@@ -12,9 +12,8 @@
 - name: Create storage location
   when: bareos_sd.location is defined
   ansible.builtin.file: 
-    path: "{{ item.path }}"
+    path: "{{ bareos_sd.location }}"
     state: directory
     mode: '0770'
     owner: bareos
     group: bareos
-  with_items: "{{ bareos_sd.location }}"

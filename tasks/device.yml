@@ -10,6 +10,15 @@
   notify:
     - restart bareos-sd service
 
+- name: Create devices location
+  ansible.builtin.file: 
+    path: "{{ bareos_sd.location }}/{{ item.name }}"
+    state: directory
+    mode: '0770'
+    owner: bareos
+    group: bareos
+  with_items: "{{ bareos_sd.device }}"
+
 - name: Find unmanaged bareos-sd device configurations
   ansible.builtin.find:
     paths: /etc/bareos/bareos-sd.d/device

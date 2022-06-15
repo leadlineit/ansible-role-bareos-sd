@@ -24,8 +24,7 @@ bareos_tls_path: /etc/bareos/tls
 bareos_tls_certs: your.bareos.dir.com
 
 bareos_sd:
-  location:
-    - path: /data/bareos
+  location: /data/bareos
   director:
     - name: your-dir
       description: Director description (who is permitted to contact this storage daemon)
