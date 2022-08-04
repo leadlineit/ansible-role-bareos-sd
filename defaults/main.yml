@@ -20,10 +20,12 @@ bareos_sd:
   storage:
     - name: your.storage
       description: Storage description
+      max_jobs: 20
       tls_enable: "yes"
   device:
     - name: your-data
       description: Device description
+      max_jobs: 20
       path: /data/bareos
   messages:
     - name: your-messages
